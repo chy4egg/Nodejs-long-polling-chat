@@ -22,7 +22,6 @@
       var xhr = new XMLHttpRequest();
       xhr.open("POST", "/publish", true);
       xhr.send(JSON.stringify({ message: this.elements.message.value }));
-
       this.elements.message.value = '';
 
       return false;
@@ -32,12 +31,11 @@
 
     function subscribe() {
       var xhr = new XMLHttpRequest();
-
       xhr.open("GET", "/subscribe", true);
-
       xhr.onreadystatechange = function () {
-        if (this.readyState != 4) return;
-
+        if (this.readyState != 4) {
+          return;
+        }
         if (this.status != 200) {
           setTimeout(subscribe, 500);
           return;

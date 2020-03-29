@@ -27,7 +27,6 @@ http
               res.statusCode = 413;
               res.end("Your message is too big for my little chat");
             }
-
           })
           .on("end", function() {
             try {
@@ -41,7 +40,6 @@ http
             chat.publish(body.message);
             res.end("ok");
           });
-
         break;
 
       default:
